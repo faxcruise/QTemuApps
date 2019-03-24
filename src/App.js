@@ -27,7 +27,7 @@ class App extends Component {
       ],
       contentHeader: {
           title: 'Hactiv8 Meetup',
-          location: '',
+          location: 'Jakarta',
           member: '',
           organzer: '',
           linkPage: '#'
@@ -38,6 +38,8 @@ class App extends Component {
           contentSubTitle: '25 Januari 2019',
           contentText: [
               'Hello, Javascript & Node.js Ninjas!',
+              'Get ready for our montly meetup JakartaJS! This will be our fifth meetup of 2018!. The meetup format will contain some short stories and trchnical tyalks. If you have a short announcement you\'d like to share with the audience, you may do so during open mic announcements.',
+              'Remember to bring a photo ID to get through building security.',
               '-----',
               'See You There!'
             ],
@@ -54,8 +56,7 @@ class App extends Component {
               ],
             },
       ],
-      members: [
-        {
+      members: {
           sectionTitle: 'Members',        
           listMember: [{
             avatar: 'https://hacktiv8.com/img/fox.png__vzu2vhp2VRX%2Bewg7J0bPlaAa9e377ae39495073d0e66db163fc8d9b',
@@ -64,8 +65,7 @@ class App extends Component {
             count:'4',
             }, 
           ],               
-        },
-      ],
+      },
       pastmeetups: [
         {
           sectionTitle: 'Past Meetups',
@@ -97,14 +97,17 @@ class App extends Component {
   }
   
   componentDidMount() {
+
     Axios
     .get("https://swapi.co/api/people/")
     .then(response => {
       
+      //header
       let contentHeader = Object.assign({}, this.state.contentHeader)
       contentHeader.organzer = response.data.results[0].name
       contentHeader.member = response.data.count      
 
+      //content
       let isiContent = Object.assign({}, this.state.isiContent)
       let dataOrang = ''
       let tmpDataOrang = response.data.results      
@@ -114,19 +117,18 @@ class App extends Component {
         )
       })
 
-      isiContent[0].contentText.push(dataOrang)
+      isiContent[0].contentText.push(dataOrang.substring(1))
+      isiContent.contentText = response.data.results[0].name  
 
-      isiContent.contentText = response.data.results[0].name
-      // Axios
-      // .get(response.data.results.homeworld)
-      // .then(responselocation => {
-      //   contentHeader.location = responselocation.data.name
-      // })
+      //member
+      let members = Object.assign({}, this.state.members)
+      members.listMember[0].name = response.data.results[3].name
 
       this.setState({
         people: response.data.results,
         contentHeader,
-        isiContent      
+        isiContent,
+        members
       })
     })
   }
@@ -147,7 +149,7 @@ class App extends Component {
         <br/>
         <PastMeetups pastmeetups={pastmeetups}/>
 
-        <ul>
+        {/* <ul>
               {
                 people.map(orang => {
                   return (
@@ -155,7 +157,7 @@ class App extends Component {
                   )
                 })
               }
-            </ul>
+            </ul> */}
       </React.Fragment>
     );
   }

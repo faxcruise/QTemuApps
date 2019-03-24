@@ -50,7 +50,7 @@ const styles = theme => ({
 
 class Member extends React.Component{
     render(){
-        const { classes } = this.props;
+        const { classes, dataMember } = this.props;
         return (
           <React.Fragment>
             <Grid container spacing={16}>
@@ -58,7 +58,7 @@ class Member extends React.Component{
                 <Grid item xs container direction="column" spacing={16}>
                   <Grid item xs>
                     <Typography component="h6" variant="h6">
-                    {this.props.dataMember[0].sectionTitle}
+                    {dataMember.sectionTitle}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -71,23 +71,23 @@ class Member extends React.Component{
             <Card className={classes.card}>
               <Grid container spacing={16}>
                 <Grid item>
-                  <Avatar alt="Remy Sharp" src={this.props.dataMember[0].listMember[0].avatar} className={classes.bigAvatar} />
+                  <Avatar alt="Remy Sharp" src={dataMember.listMember[0].avatar} className={classes.bigAvatar} />
                 </Grid>
                 <Grid item xs={12} sm container>
                   <Grid item xs container direction="column" spacing={16}>
                     <Grid item xs>
                       <Typography  gutterBottom variant="subtitle1">
-                      {this.props.dataMember[0].listMember[0].level}
+                      {dataMember.listMember[0].level}
                       </Typography>        
                       <Grid container >
                         <Grid item xs={3}>
                           <Typography gutterBottom variant="body2">
-                          {this.props.dataMember[0].listMember[0].name}
+                          {dataMember.listMember[0].name}
                           </Typography>
                         </Grid>
                         <Grid item xs={3}>
                         <Typography gutterBottom variant="body2">
-                        {this.props.dataMember[0].listMember[0].count} Others.
+                        {dataMember.listMember[0].count} Others.
                           </Typography>
                         </Grid>
                       </Grid>
