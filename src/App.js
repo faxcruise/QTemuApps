@@ -61,7 +61,7 @@ class App extends Component {
           listMember: [{
             avatar: 'https://hacktiv8.com/img/fox.png__vzu2vhp2VRX%2Bewg7J0bPlaAa9e377ae39495073d0e66db163fc8d9b',
             level: 'Organizer',
-            name: 'Adhy Wiranata',
+            name: '',
             count:'4',
             }, 
           ],               
@@ -120,7 +120,7 @@ class App extends Component {
       isiContent[0].contentText.push(dataOrang.substring(1))
       isiContent.contentText = response.data.results[0].name  
 
-      //member
+      //memberX
       let members = Object.assign({}, this.state.members)
       members.listMember[0].name = response.data.results[3].name
 
