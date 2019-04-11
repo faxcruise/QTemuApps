@@ -53,7 +53,7 @@ class Member extends React.Component{
         const { classes, dataMember } = this.props;
         return (
           <React.Fragment>
-            <Grid container spacing={16}>
+            <Grid container spacing={40}>
               <Grid item xs={12} sm container>
                 <Grid item xs container direction="column" spacing={16}>
                   <Grid item xs>

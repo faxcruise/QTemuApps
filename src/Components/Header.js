@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -59,9 +60,11 @@ class Header extends React.Component{
                   </Grid>
                   
                   <Grid item>
-                    <Button variant="contained" color="primary" className={classes.button} href={contentHeader.linkPage}>
+                    {/* <Button variant="contained" color="primary" className={classes.button} href={contentHeader.linkPage}>
                       Join Us
-                    </Button>
+                    </Button> */}
+
+<Link to="/register">Register</Link>
                   </Grid>
                 </Grid>
                 

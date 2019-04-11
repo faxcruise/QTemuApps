@@ -5,12 +5,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 // import IconButton from '@material-ui/core/IconButton';
 // import MenuIcon from '@material-ui/icons/Menu';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import Menu from '@material-ui/core/Menu';
 // import BottomNavigation from '@material-ui/core/BottomNavigation';
 // import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+
 
 
 const styles = {
@@ -35,14 +37,15 @@ class NavBar extends React.Component{
                 <AppBar position="static">
                 <Toolbar>
                     <Toolbar>
-                      <Typography variant="headline" color="inherit">
-                      {this.props.namaApps}
+                      <Typography variant="headline" color="inherit">                      
+                      <Link to="/">{this.props.namaApps}</Link>
+                      
                       </Typography>
                     </Toolbar>
 
 
                     {this.props.menu.map(oneMenu => (                      
-                      <Button color="inherit" href={oneMenu.location} key={oneMenu.name}>{oneMenu.name}</Button>
+                      <Button color="inherit" href={oneMenu.location} key={oneMenu.name}>{oneMenu.name}</Button>                      
                     ))}
                     
                     

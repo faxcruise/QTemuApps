@@ -34,28 +34,25 @@ const styles = theme => ({
 class PastMeetups extends React.Component{
     render(){
       const { classes} = this.props;
-      console.log("props----------",this.props.posts);
     
     return (
         <React.Fragment>
-            <Grid container spacing={16}>
+            <Grid container spacing={40}>
                 <Grid item xs={12} sm container>
-                <Grid item xs container direction="column" spacing={16}>
-                    <Grid item xs>
-                    <Typography component="h6" variant="h6">
-                    {this.props.pastmeetups[0].sectionTitle}
-                    </Typography>
+                    <Grid item xs justify="space-evenly">
+                        <Typography component="h6" variant="h6">
+                            {this.props.pastmeetups[0].sectionTitle}
+                        </Typography>
                     </Grid>
-                </Grid>
-                <Grid item>
-                <Typography style={{ cursor: 'pointer' }}>See all</Typography>
-                </Grid>
+                    <Grid item>
+                        <Typography style={{ cursor: 'pointer' }}>See all</Typography>
+                    </Grid>
                 </Grid>
             </Grid>
 
             <Card className={classes.card}>
             <CardContent>
-                <Grid container spacing={40} justify="center">
+                <Grid container spacing={40} justify="space-evenly">
                     {this.props.pastmeetups[0].listMeetUps.map(pastmeetup => (
                     <Grid item key={pastmeetup.id}>
                         <Card>
